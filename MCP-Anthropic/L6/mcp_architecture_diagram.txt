@@ -1,0 +1,66 @@
+```
++-------------------------------------------------------------------------------------------------------------+
+|                                  MODEL CONTEXT PROTOCOL (MCP) ARCHITECTURE                                   |
++-------------------------------------------------------------------------------------------------------------+
+
++---------------------+                                                  +----------------------+
+|       HOST          |                                                  |       SERVER         |
+| (LLM Application)   |                                                  | (Context Provider)   |
++----------+----------+                                                  +-----------+----------+
+           |                                                                         |
+           |                      +-----------------------+                          |
+           |                      |       CLIENT          |                          |
+           +--------------------->| (Connection Manager)  |<-------------------------+
+                                  +-----------+-----------+
+                                              |
+                  +-------------------------------+-------------------------------+
+                  |                               |                               |
+    +-------------v--------------+  +-------------v--------------+  +-------------v--------------+
+    |      PROTOCOL LAYER        |  |      TRANSPORT LAYER       |  |       MESSAGE TYPES        |
+    |-----------------------------|  |-----------------------------|  |-----------------------------|
+    | • Message framing           |  | • Stdio Transport          |  | • Requests                  |
+    | • Request/response linking  |  |   (Local processes)        |  |   - Expect response         |
+    | • Communication patterns    |  | • Streamable HTTP          |  | • Results                   |
+    | • Key classes:              |  |   (Remote communication)   |  |   - Successful responses    |
+    |   - Protocol                |  | • Uses JSON-RPC 2.0        |  | • Errors                    |
+    |   - Client                  |  |   message format           |  |   - Failed requests         |
+    |   - Server                  |  |                            |  | • Notifications             |
+    +----------------------------+    +----------------------------+  |   - One-way messages       |
+                                                                      +----------------------------+
+
++-------------------------------------------------------------------------------------------------------------+
+|                                      CONNECTION LIFECYCLE                                                    |
++---------------+-------------------------------------------------------------------------------------------+
+| 1. INITIALIZE | • Client sends initialize request with version/capabilities                               |
+|               | • Server responds with its version/capabilities                                           |
+|               | • Client sends initialized notification                                                   |
++---------------+-------------------------------------------------------------------------------------------+
+| 2. EXCHANGE   | • Request-Response pattern (bidirectional)                                                |
+|               | • Notifications (one-way messages)                                                        |
++---------------+-------------------------------------------------------------------------------------------+
+| 3. TERMINATE  | • Clean shutdown via close()                                                              |
+|               | • Transport disconnection                                                                 |
+|               | • Error conditions                                                                        |
++---------------+-------------------------------------------------------------------------------------------+
+
++-------------------------------------------------------------------------------------------------------------+
+|                                     BEST PRACTICES & CONSIDERATIONS                                          |
++---------------+-------------------------------------------------------------------------------------------+
+| TRANSPORT     | • Local: Use stdio transport                                                              |
+| SELECTION     | • Remote: Use Streamable HTTP with security considerations                                |
++---------------+-------------------------------------------------------------------------------------------+
+| MESSAGE       | • Validate inputs thoroughly                                                              |
+| HANDLING      | • Use type-safe schemas                                                                   |
+|               | • Handle errors gracefully                                                                |
+|               | • Report progress for long operations                                                     |
++---------------+-------------------------------------------------------------------------------------------+
+| SECURITY      | • Transport security (TLS, origin validation)                                             |
+|               | • Message validation and sanitization                                                     |
+|               | • Resource protection and access controls                                                 |
+|               | • Secure error handling                                                                   |
++---------------+-------------------------------------------------------------------------------------------+
+| DEBUGGING &   | • Comprehensive logging                                                                   |
+| MONITORING    | • Diagnostics (health checks, connection state)                                           |
+|               | • Thorough testing across transports                                                      |
++---------------+-------------------------------------------------------------------------------------------+
+```

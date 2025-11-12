@@ -1,0 +1,34 @@
+# Exploration of Agentic AI: Findings from deeplearning.ai and Related Research
+
+## Term Discovered
+After examining the content from deeplearning.ai, I identified "Agentic AI" as an interesting and emerging term in the field. The term appears in multiple contexts on the website, including mentions of "agentic biology" and as a key AI concept.
+
+## Papers Investigated
+
+### Paper 1: "Responsible AI Agents"
+**Authors:** Deven R. Desai and Mark O. Riedl
+**Published:** February 25, 2025
+**Key Points:**
+- Explores the emergence of AI agents capable of executing tasks rather than just generating content
+- Addresses concerns about potential negative impacts of AI agents (rogue commerce, manipulation, etc.)
+- Proposes that software interaction patterns can create natural discipline mechanisms for AI agents
+- Argues against giving AI agents legal personhood, emphasizing human responsibility for AI actions
+- Offers guidelines for building and maintaining responsible AI agents
+
+### Paper 2: "Agentic AI and Multiagentic: Are We Reinventing the Wheel?"
+**Authors:** V. Botti
+**Published:** June 2, 2025
+**Key Points:**
+- Critiques the recent popularization of terms "Agentic AI" and "Multiagentic AI" in generative AI discussions
+- Argues these terms are essentially buzzwords for well-established concepts: intelligent agents and multi-agent systems
+- Traces the origins of "agentic" to social sciences (Bandura) and philosophical notions of intentionality (Dennett)
+- Reviews foundational work on intelligent agents and multi-agent systems
+- Calls for scientific rigor and proper use of established terminology from decades of AI research
+- Warns against "reinventing the wheel" by ignoring existing knowledge in agent-based systems
+
+## Summary of Findings
+The exploration reveals an interesting tension in the field of AI agents. While companies like OpenAI, Google, and Microsoft are promoting autonomous AI agents as an innovative new technology, there is a parallel critique that much of this "new" terminology overlooks decades of research in intelligent agents and multi-agent systems.
+
+The first paper focuses on the practical and ethical considerations of deploying autonomous AI agents, offering frameworks for responsible development. The second paper provides a historical and conceptual perspective, arguing that the field should build upon existing knowledge rather than presenting established concepts under new names.
+
+Together, these papers highlight both the exciting potential of agentic AI systems and the importance of grounding new developments in the rich history of AI research.
