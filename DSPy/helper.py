@@ -12,4 +12,6 @@ def get_openai_api_key():
     openai_api_key = os.getenv("OPENAI_API_KEY")
     return openai_api_key
 
-    
+def get_mlflow_tracking_uri():
+    return "http://localhost:8080"
+    #return os.environ.get('DLAI_LOCAL_URL').format(port=8080) 
